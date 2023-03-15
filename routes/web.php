@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AuditLogController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
@@ -23,6 +24,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // Users
     Route::resource('users', UserController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Audit Logs
+    Route::resource('audit-logs', AuditLogController::class, ['except' => ['store', 'update', 'destroy', 'create', 'edit']]);
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {

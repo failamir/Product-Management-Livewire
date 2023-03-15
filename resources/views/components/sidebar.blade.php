@@ -43,7 +43,7 @@
 
                 @can('user_management_access')
                     <li class="items-center">
-                        <a class="has-sub {{ request()->is("admin/permissions*")||request()->is("admin/roles*")||request()->is("admin/users*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="#" onclick="window.openSubNav(this)">
+                        <a class="has-sub {{ request()->is("admin/permissions*")||request()->is("admin/roles*")||request()->is("admin/users*")||request()->is("admin/audit-logs*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="#" onclick="window.openSubNav(this)">
                             <i class="fa-fw fas c-sidebar-nav-icon fa-users">
                             </i>
                             {{ trans('cruds.userManagement.title') }}
@@ -73,6 +73,15 @@
                                         <i class="fa-fw c-sidebar-nav-icon fas fa-user">
                                         </i>
                                         {{ trans('cruds.user.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('audit_log_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/audit-logs*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.audit-logs.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-file-alt">
+                                        </i>
+                                        {{ trans('cruds.auditLog.title') }}
                                     </a>
                                 </li>
                             @endcan
