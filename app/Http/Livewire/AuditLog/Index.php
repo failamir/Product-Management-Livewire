@@ -12,7 +12,9 @@ use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithPagination, WithSorting, WithConfirmation;
+    use WithPagination;
+    use WithSorting;
+    use WithConfirmation;
 
     public int $perPage;
 
