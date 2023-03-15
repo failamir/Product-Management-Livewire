@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AuditLog extends Model
 {
-    use HasFactory, HasAdvancedFilter;
+    use HasFactory;
+    use HasAdvancedFilter;
 
     public $table = 'audit_logs';
 
